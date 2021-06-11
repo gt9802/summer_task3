@@ -16,9 +16,9 @@ s.bind((ip,port))
 
 def send():
     vid = cv2.VideoCapture(0)
-  encoded,buffer = cv2.imencode('.jpg',frame,[cv2.IMWRITE_JPEG_QUALITY,80])
-        message = base64.b64encode(buffer)
-        s.sendto(message,("192.168.43.222",1234))
+    encoded,buffer = cv2.imencode('.jpg',frame,[cv2.IMWRITE_JPEG_QUALITY,80])
+    message = base64.b64encode(buffer)
+    s.sendto(message,("192.168.43.222",1234))
 
 
 def recv():
@@ -38,8 +38,4 @@ x2 = threading.Thread( target=recv )
 
 x1.start()
 x2.start()
-    WIDTH=400
-    while(vid.isOpened()):
-        _,frame = vid.read()
-        frame = imutils.resize(frame,width=WIDTH)
 
